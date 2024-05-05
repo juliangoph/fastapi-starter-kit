@@ -1,0 +1,19 @@
+default_stages: [commit]
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.4.3
+    hooks:
+      # Run the linter.
+      - id: ruff
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
+
+  - repo: https://github.com/jorisroovers/gitlint
+    rev:  v0.19.1
+    hooks:
+      - id: gitlint
+        entry: gitlint
+        args: [ --msg-filename ]
+        stages: [ commit-msg ]
