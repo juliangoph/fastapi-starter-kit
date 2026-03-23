@@ -5,7 +5,7 @@ services:
     ports:
       - "8008:8008"
     volumes:
-      - .:/code
+      - .:/home/app_user/code
     environment:
       DEBUG: 'true'
     env_file:

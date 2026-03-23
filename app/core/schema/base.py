@@ -11,18 +11,18 @@ class BaseResponse(PydanticModel):
 
 
 class LogData(PydanticModel):
-    request_id: Optional[str]
-    user_host: Optional[str]
-    user_agent: Optional[str]
-    path: Optional[str]
-    method: Optional[str]
-    path_params: Optional[dict]
-    query_params: Optional[dict]
-    payload: Optional[dict]
-    request_data: Optional[str]
-    response_data: Optional[str]
-    response_code: Optional[int]
-    response_time: Optional[int]
+    request_id: Optional[str] = None
+    user_host: Optional[str] = None
+    user_agent: Optional[str] = None
+    path: Optional[str] = None
+    method: Optional[str] = None
+    path_params: Optional[dict] = None
+    query_params: Optional[dict] = None
+    payload: Optional[dict] = None
+    request_data: Optional[str] = None
+    response_data: Optional[str] = None
+    response_code: Optional[int] = None
+    response_time: Optional[int] = None
 
     class Config:
         validate_assignment = True
