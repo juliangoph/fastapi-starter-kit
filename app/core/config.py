@@ -1,4 +1,4 @@
-from pydantic import ValidationInfo, field_validator, Field
+from pydantic import Field, ValidationInfo, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -14,19 +14,19 @@ class Settings(BaseSettings):
     # "http://localhost:8080", "http://local.dockertoolbox.tiangolo.com"]'
     CORS_ORIGINS: str | list[str] = ["127.0.0.1", "0.0.0.0"]
 
-    REDIS_HOST: str = "redis"
-    REDIS_PORT: str = "6379"
-    REDIS_PASS: str = ""
+    REDIS_HOST: str = Field(alias="REDIS_HOST")
+    REDIS_PORT: str = Field(alias="REDIS_PORT")
+    REDIS_PASS: str = Field(alias="REDIS_PASS")
 
-    DB_HOST: str = "database"
-    DB_PORT: int = 5432
+    DB_HOST: str = Field(alias="DB_HOST")
+    DB_PORT: int = Field(alias="DB_PORT")
     DB_NAME: str = Field(alias="POSTGRES_DB")
     DB_USERNAME: str = Field(alias="POSTGRES_USER")
     DB_PASSWORD: str = Field(alias="POSTGRES_PASSWORD")
     DB_URL: str = ""
 
-    TIME_ZONE: str = "Asia/Dhaka"
-    LOG_LEVEL: str = "DEBUG"
+    TIME_ZONE: str = Field(alias="TIME_ZONE")
+    LOG_LEVEL: str = Field(alias="LOG_LEVEL")
     LOG_FORMAT: str = (
         "time: %(asctime)s | level: %(levelname)s | request_id: %(request_id)s | "
         "user_host: %(user_host)s | user_agent: %(user_agent)s | path: %(path)s | method: %(method)s | "
